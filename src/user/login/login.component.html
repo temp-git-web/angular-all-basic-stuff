@@ -1,0 +1,11 @@
+<form #simpleform="ngForm" (ngSubmit)="onSubmit(simpleform)">
+  <input type='text' ngModel name='username' placeholder="username" />
+  <br><br>
+  <input type='number' ngModel name='age' placeholder="age" />
+  <br><br>
+  <input type='text' ngModel name='address' placeholder="address" />
+  <br><br>
+  <input type='password' ngModel name='password' placeholder="password" />
+  <br><br>
+  <button type="submit"> Submit form </button>
+</form>

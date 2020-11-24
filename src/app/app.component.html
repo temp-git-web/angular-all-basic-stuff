@@ -1,0 +1,95 @@
+<app-header></app-header>
+<hello name="{{ name }}"></hello>
+
+
+<h3 [style.color]='colorbind'>style binding</h3>
+<button (click)='styleBind()'>change color</button>
+<app-login></app-login>
+
+<!-- sending data to signup component(child component) -->
+<app-signup [dataFromParent]='dataForChild'></app-signup>
+
+<!-- recieving data from child for parent -->
+<app-child (dataFromChild)='dataFromChild($event)' ></app-child>
+{{dataFromParent}}
+<!-- here above we are binding, therefore NORMAL PARENTHESIS have been used -->
+
+<!-- performing reusability of a component -->
+<app-reusable [data]='arrayForChild'></app-reusable>
+
+<label id = 'box'>Name</label>
+<input type = 'text' #box />
+<button (click)= 'getFruit(box)'>get name</button>
+<br>
+{{fruitName}}
+
+<!-- property binding: attribute control possible rehta hi isme jo ki interpolation me ni hota -->
+
+<input type="text" value='input' [disabled] = "disabled"/>
+<br><br>
+<input type="text" value='input' disabled = {{disabled}}/>
+<br>
+<button (click)="enable()">enable</button>
+
+<!-- if else block -->
+
+<h1 *ngIf = "condition else conditionblock"> 
+  condition block
+</h1>
+
+<ng-template #conditionblock >
+  <h1>template block</h1>
+</ng-template>
+
+
+<!-- binding with if else condition -->
+
+<ng-template [ngIf]="color == 'blue'">
+  <h1>Blue </h1>
+</ng-template>
+
+<ng-template [ngIf]="color == 'red'">
+  <h1>red </h1>
+</ng-template>
+
+<ng-template [ngIf]="color == 'green'">
+  <h1>green </h1>
+</ng-template>
+
+<!-- conditions with string -->
+
+<h1 *ngIf="stringCondition=='yes' else stringConditiontemplate">
+  conditions with string
+  </h1>
+
+<ng-template #stringConditiontemplate>
+  string Condition template
+  </ng-template>  
+
+  <!-- switch statement -->
+<div [ngSwitch]="switchColor">
+  <h1 *ngSwitchCase="'red'">Red</h1>
+
+  <h1 *ngSwitchCase="'green'">Green</h1>
+
+  <h1 *ngSwitchCase="'blue'">Blue</h1>
+  </div> 
+
+  <!-- for loop -->
+  <div *ngFor='let item of array'>
+    {{item}}
+  </div>
+
+  <table border= '1'>
+    <tr>
+      <td>Name</td>
+      <td>Age</td>
+      <td>Email</td>
+    </tr>
+    <tr *ngFor="let item of arrayForTable">
+      <td>{{item.name}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+  </table>
+  <app-footer></app-footer>
