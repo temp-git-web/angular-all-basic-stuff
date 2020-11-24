@@ -14,7 +14,7 @@ export class AppComponent  {
 
   condition = true
 
-  color = 'green'
+  color = 'yellow'
 
   stringCondition = 'no'
 
